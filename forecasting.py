@@ -5,7 +5,7 @@ import numpy as np
 import pandas as pd
 from sklearn.ensemble import RandomForestRegressor
 
-from analytics import monthly_revenue
+from sales_analytics import monthly_revenue
 
 
 FEATURE_NAMES = ["trend", "month", "month_sin", "month_cos", "lag_1", "lag_2", "lag_3", "rolling_3"]
