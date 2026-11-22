@@ -1,7 +1,7 @@
 import pandas as pd
 import pytest
 
-from analytics import prepare_sales_data, monthly_revenue, sales_summary, revenue_anomalies
+from sales_analytics import prepare_sales_data, monthly_revenue, sales_summary, revenue_anomalies
 from forecasting import forecast_monthly_revenue
 
 
@@ -75,3 +75,15 @@ def test_forecast_explains_insufficient_history():
     result = prepare_sales_data(raw)
     with pytest.raises(ValueError, match="8 months"):
         forecast_monthly_revenue(result)
+
+
+def test_missing_cost_values_are_estimated_only_for_missing_rows():
+    raw = pd.DataFrame({
+        "order_date": ["2024-01-01", "2024-01-02"],
+        "revenue": [100.0, 200.0],
+        "cost": [30.0, None],
+    })
+    result = prepare_sales_data(raw)
+    assert result["cost"].tolist() == pytest.approx([30.0, 130.0])
+    assert result["_cost_estimated"].tolist() == [False, True]
+    assert result["profit"].tolist() == pytest.approx([70.0, 70.0])
