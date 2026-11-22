@@ -1,9 +1,12 @@
 # RetailPulse — Sales Analytics & Forecasting
 
+## Live Demo
+
+<https://retailpulse-sales-analytics-forecasting-nsmurdecucfes7vhyswcbi.streamlit.app/>
+
 [![Open Live Demo](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://retailpulse-sales-analytics-forecasting-nsmurdecucfes7vhyswcbi.streamlit.app/)
 
-**Live Demo:** [RetailPulse – Sales Analytics & Forecasting](https://retailpulse-sales-analytics-forecasting-nsmurdecucfes7vhyswcbi.streamlit.app/)
-
+[**Launch RetailPulse – Sales Analytics & Forecasting**](https://retailpulse-sales-analytics-forecasting-nsmurdecucfes7vhyswcbi.streamlit.app/)
 
 RetailPulse is a Streamlit dashboard for exploring retail sales, tracking business KPIs, spotting unusual monthly sales changes, and forecasting revenue from uploaded CSV or Excel data.
 
@@ -50,7 +53,7 @@ Expected canonical columns:
 
 ## Forecasting notes
 
-The forecast is an analytical estimate trained on the selected data, not a guarantee. It uses a Random Forest regression model with calendar and recent-sales features. It requires enough monthly history to fit a useful model; otherwise the dashboard explains why it cannot produce a forecast. No external service receives uploaded data.
+The forecast is an analytical estimate trained on the selected data, not a guarantee. It uses a Random Forest regression model with calendar and recent-sales features. It requires enough monthly history to fit a useful model; otherwise the dashboard explains why it cannot produce a forecast. When hosted on Streamlit Community Cloud, uploaded files are processed by the hosted app. The app does not forward uploaded data to third-party analytics or model APIs.
 
 ## Tests
 
@@ -60,7 +63,7 @@ pytest -q
 
 ## Deploy
 
-Create a new app in [Streamlit Community Cloud](https://share.streamlit.io), select this repository, choose `app.py` as the main file, and deploy. The repository includes `requirements.txt`.
+Create a new app in [Streamlit Community Cloud](https://share.streamlit.io), select this repository, choose `app.py` as the main file, and deploy. The repository includes a pinned `requirements.txt` in the root directory. After changing app code, Streamlit Community Cloud automatically deploys updates from the connected GitHub branch. If a dependency change does not appear, use the app menu to reboot the app.
 
 ## Data
 
