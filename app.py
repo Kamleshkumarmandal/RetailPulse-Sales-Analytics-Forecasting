@@ -8,7 +8,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 import streamlit as st
 
-from analytics import prepare_sales_data, revenue_anomalies, sales_summary, monthly_revenue
+from sales_analytics import prepare_sales_data, revenue_anomalies, sales_summary, monthly_revenue
 from forecasting import forecast_monthly_revenue
 
 
@@ -29,7 +29,7 @@ with st.sidebar:
     uploaded = st.file_uploader("Upload sales data", type=["csv", "xlsx", "xls"])
     currency_name = st.selectbox("Display currency", list(CURRENCY_SYMBOLS), index=0)
     currency = CURRENCY_SYMBOLS[currency_name]
-    st.caption("No uploaded file is sent to an external service.")
+    st.caption("Uploaded data is processed by this app; no third-party analytics or model API is called.")
 
 try:
     if uploaded is None:
@@ -47,7 +47,7 @@ except Exception as exc:
     st.info("Use a CSV or Excel file with a date column and sales/revenue, or units and unit price.")
     st.stop()
 
-cost_estimated = bool(sales["_cost_estimated"].iloc[0]) if not sales.empty else False
+cost_estimated = bool(sales["_cost_estimated"].any()) if not sales.empty else False
 
 with st.sidebar:
     st.divider()
@@ -85,7 +85,7 @@ if filtered.empty:
     st.stop()
 
 if cost_estimated:
-    st.info("Cost was not supplied in this file. Profit and margin use an estimated cost of 65% of revenue.")
+    st.info("Some cost values were missing. Profit and margin use an estimated cost of 65% of revenue for those rows.")
 
 kpis = sales_summary(filtered)
 m1, m2, m3, m4, m5, m6 = st.columns(6)
