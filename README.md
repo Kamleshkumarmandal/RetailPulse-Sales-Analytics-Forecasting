@@ -1,5 +1,10 @@
 # RetailPulse — Sales Analytics & Forecasting
 
+[![Open Live Demo](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://retailpulse-sales-analytics-forecasting-nsmurdecucfes7vhyswcbi.streamlit.app/)
+
+**Live Demo:** [RetailPulse – Sales Analytics & Forecasting](https://retailpulse-sales-analytics-forecasting-nsmurdecucfes7vhyswcbi.streamlit.app/)
+
+
 RetailPulse is a Streamlit dashboard for exploring retail sales, tracking business KPIs, spotting unusual monthly sales changes, and forecasting revenue from uploaded CSV or Excel data.
 
 ## Features
