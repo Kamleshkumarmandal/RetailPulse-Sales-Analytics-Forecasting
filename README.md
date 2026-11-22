@@ -2,7 +2,7 @@
 
 ## Live Demo
 
-<https://retailpulse-sales-analytics-forecasting-nsmurdecucfes7vhyswcbi.streamlit.app/>
+https://retailpulse-sales-analytics-forecasting-tmud5cr6n4eopttg34suuc.streamlit.app/
 
 [![Open Live Demo](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://retailpulse-sales-analytics-forecasting-nsmurdecucfes7vhyswcbi.streamlit.app/)
 
